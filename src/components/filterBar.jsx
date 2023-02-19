@@ -1,24 +1,25 @@
 import { MdArrowDropDownCircle } from "react-icons/md";
 
-const FilterBar = () => {
-  const filters = [
-    {
-      type: "Location",
-      list: ["New York", "San Fransisco", "Texas", "Miami"],
-    },
-    {
-      type: "Rooms",
-      list: ["2", "3", "4", "More than 4"],
-    },
-    {
-      type: "Price",
-      list: ["< $500", "$500 - 2000", "$2000 - 5000", "> $5000"],
-    },
-    {
-      type: "Property Type",
-      list: ["Ranch", "Cottage", "Villa", "Penthouse"],
-    },
-  ];
+const filters = [
+  {
+    type: "Location",
+    list: ["Select", "New York", "San Fransisco", "Texas", "Miami"],
+  },
+  {
+    type: "Rooms",
+    list: ["Select", "2", "3", "4", "More than 4"],
+  },
+  {
+    type: "Price",
+    list: ["Select", "< $500", "$500 - 1999", "$2000 - 4999", "> $5000"],
+  },
+  {
+    type: "Type",
+    list: ["Select", "Ranch", "Cottage", "Villa", "Penthouse"],
+  },
+];
+
+const FilterBar = ({ filterHandler, searchFilter }) => {
   return (
     <div className="px-40 mt-10">
       <div className="flex items-center justify-between w-full">
@@ -41,7 +42,10 @@ const FilterBar = () => {
               className="flex flex-col border-r border-gray-200 flex-1 mx-2 pr-4"
             >
               <span className="text-gray-500 text-xs">{filter.type}</span>
-              <select className="text-sm bg-transparent px-0">
+              <select
+                className="text-sm bg-transparent px-0"
+                onChange={filterHandler(filter.type)}
+              >
                 {filter?.list.map((option, i) => {
                   return (
                     <option key={i} value={option}>
@@ -53,7 +57,10 @@ const FilterBar = () => {
             </li>
           );
         })}
-        <button className="bg-gray-200 px-20 transition-all hover:scale-[1.02] active:scale-95">
+        <button
+          className="bg-gray-200 px-20 transition-all hover:scale-[1.02] active:scale-95"
+          onClick={searchFilter}
+        >
           Search
         </button>
       </ul>

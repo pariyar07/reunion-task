@@ -2,7 +2,7 @@ import { FaBed } from "react-icons/fa";
 
 const PropertyCard = ({ list }) => {
   const {
-    id,
+    _id,
     name: { capitalizedName },
     price,
     address,
@@ -10,12 +10,16 @@ const PropertyCard = ({ list }) => {
     type,
     image,
   } = list;
+
   return (
-    <li
-      key={id}
-      className="cursor-pointer rounded-xl overflow-hidden bg-gray-100 transition-all hover:scale-[1.01]"
-    >
-      <img src={image} alt="House" />
+    <li className="cursor-pointer rounded-xl overflow-hidden bg-gray-100 transition-all hover:scale-[1.01]">
+      <img
+        src={image}
+        alt="House"
+        width={250}
+        height={150}
+        className="w-full"
+      />
       <div className="p-6">
         <div className="flex flex-col gap-2">
           <p className="text-gray-800">

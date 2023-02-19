@@ -1,14 +1,15 @@
 import Logo from "/reunion.jpeg";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
+const navList = [
+  { text: "Rent", icon: null },
+  { text: "Buy", icon: null },
+  { text: "Sell", icon: null },
+  { text: "Manage Property", icon: <MdKeyboardArrowDown /> },
+  { text: "Resources", icon: <MdKeyboardArrowDown /> },
+];
+
 const Navbar = () => {
-  const navList = [
-    { text: "Rent", icon: null },
-    { text: "Buy", icon: null },
-    { text: "Sell", icon: null },
-    { text: "Manage Property", icon: <MdKeyboardArrowDown /> },
-    { text: "Resources", icon: <MdKeyboardArrowDown /> },
-  ];
   return (
     <nav className="flex justify-between px-16 py-4 w-full shadow-lg">
       <div className="flex items-center gap-20">
